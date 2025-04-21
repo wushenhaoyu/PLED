@@ -1,0 +1,16 @@
+2025-04-21 22:02:02,194 INFO: ------Begin Training Model------ 
+2025-04-21 22:02:02,219 INFO: Using device cuda 
+2025-04-21 22:02:04,080 INFO: Starting training:
+        Epochs:          50000
+        Batch size:      50
+        Learning rate:   0.0001
+        Training size:   485
+        Validation size: 15
+        Device:          cuda
+     
+2025-04-21 22:02:25,726 INFO: [epoch 8490 PSNR: 21.5307 --- best_epoch 8489 Best_PSNR 23.8650] 
+2025-04-21 22:02:25,726 INFO: [epoch 8490 SSIM: 0.8312 --- best_epoch 8392 Best_SSIM 0.8488] 
+2025-04-21 22:02:25,726 INFO: Epoch: 8490	Time: 21.2058	Loss: 1.6489	LearningRate: 0.0000931341 
+2025-04-21 22:02:35,218 INFO: [epoch 8491 PSNR: 21.0092 --- best_epoch 8489 Best_PSNR 23.8650] 
+2025-04-21 22:02:35,218 INFO: [epoch 8491 SSIM: 0.8280 --- best_epoch 8392 Best_SSIM 0.8488] 
+2025-04-21 22:02:35,219 INFO: Epoch: 8491	Time: 9.4260	Loss: 1.5953	LearningRate: 0.0000931325 
