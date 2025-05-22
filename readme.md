@@ -1,67 +1,71 @@
-# PLED 图像增强模型
+# PLED Image Enhancement Model
 
-本项目包含用于训练和测试图像增强模型的代码。
+This project contains code for training and testing an image enhancement model.
 
-## 目录结构
+## Directory Structure
 
-- `train.py`：模型训练脚本
-- `test.py`：模型测试脚本
-- `sum_para.py`：统计模型参数和FLOPs
-- `model/`：模型结构与损失函数定义
-- `DataProcess/`：数据加载与处理
-- `utils/`：工具函数
-- `checkpoints/`：模型权重保存目录
-- `log/`：训练日志
+- `train.py`: Model training script
+- `test.py`: Model testing script
+- `sum_para.py`: Model parameter and FLOPs statistics
+- `model/`: Model architecture and loss function definitions
+- `DataProcess/`: Data loading and processing
+- `utils/`: Utility functions
+- `checkpoints/`: Directory for saving model weights
+- `log/`: Training logs
 
-## 环境依赖
+## Requirements
 
 - Python 3.8+
-- torch2.4.1 
+- torch 2.4.1
 - torchvision
 
-## 训练模型
+## Training the Model
 
-1. **准备数据集**  
-   修改 [train.py](train.py) 中的 `train_dir` 和 `val_dir` 路径，指向你的训练和验证集。
+1. **Prepare the Dataset**  
+   Edit `train.py` to set the `train_dir` and `val_dir` paths to your training and validation datasets.
 
-2. **开始训练**  
-   运行以下命令：
+2. **Start Training**  
+   Run the following command:
 
    ```sh
    python train.py --epochs 50000 --batch-size 50 --learning-rate 1e-4
    ```
 
-   你可以根据需要调整参数，具体参数说明见 [train.py](train.py) 的 [`get_args`](d:/Common/Decetion/fuwu/PLED/train.py) 函数。
+   You can adjust the parameters as needed. For details, see the `get_args` function in [train.py](train.py).
 
-3. **训练日志与模型保存**  
-   - 日志保存在 `log/` 目录
-   - 模型权重保存在 `checkpoints/` 目录
+3. **Logs and Model Saving**  
+   - Logs are saved in the `log/` directory.
+   - Model weights are saved in the `checkpoints/` directory.
 
-## 测试模型
+## Testing the Model
 
-1. **准备测试集**  
-   修改 [test.py](test.py) 中的数据路径，确保指向你的测试集。
+1. **Prepare the Test Set**  
+   Edit `test.py` to set the data path to your test dataset.
 
-2. **加载模型权重**  
-   默认会从 `checkpoints/model_bestPSNR.pth` 或 `model_bestSSIM.pth` 加载最优模型。
+2. **Load Model Weights**  
+   By default, the script loads the best model from `checkpoints/model_bestPSNR.pth` or `model_bestSSIM.pth`.
 
-3. **运行测试**  
+3. **Modify model.py**  
+   In the `Illumination_enhance` class, change the return value of the `forward` method to a list (e.g., `[x3]`, or include other intermediate results as needed).
+
+4. **Run Testing**  
+
    ```sh
    python test.py
    ```
 
-   测试结果会输出到控制台或指定目录。
+   The test results will be output to the console or a specified directory.
 
-## 统计模型参数和FLOPs
+## Model Parameters and FLOPs Statistics
 
-运行：
+Run:
 
 ```sh
 python sum_para.py
 ```
 
-会输出模型的参数量和FLOPs信息。
+This will output the model's parameter count and FLOPs information.
 
 ---
 
-如需详细配置或自定义训练/测试流程，请参考各脚本内注释和函数说明。
+For detailed configuration or custom training/testing workflows, please refer to the comments and function descriptions in each script.
